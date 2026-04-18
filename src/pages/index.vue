@@ -5,7 +5,7 @@ import ColorsList from '@/components/colors-list.vue'
 <template>
   <article>
     <h1>襲</h1>
-    <p>Traditional Colors of Japan Lookup</p>
+    <p>Traditional Colors of Japan</p>
     <nav>
       <ColorsList class="colors-list" />
     </nav>
