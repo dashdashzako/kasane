@@ -1,0 +1,35 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans',
+    'Noto Sans JP',
+    'Meiryo',
+    'Yu Gothic',
+    sans-serif;
+
+  font-size: 100%;
+
+  line-height: 1.8;
+
+  font-feature-settings: 'palt';
+  font-kerning: auto;
+
+  word-break: normal;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}

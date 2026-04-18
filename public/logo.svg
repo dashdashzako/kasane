@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="kasane-title kasane-desc">
+  <title id="kasane-title">Kasane</title>
+  <desc id="kasane-desc">Four stacked horizontal bars in traditional Japanese pink and red hues, evoking the layered silk kimonos of the Heian period.</desc>
+
+  <!-- akabeni (deep red) -->
+  <rect x="8" y="12" width="48" height="9" rx="1.5" fill="#C73E3A"/>
+
+  <!-- toki-iro (coral pink) -->
+  <rect x="8" y="23" width="48" height="9" rx="1.5" fill="#E8998D"/>
+
+  <!-- sakura-iro (cherry blossom pink) -->
+  <rect x="8" y="34" width="48" height="9" rx="1.5" fill="#F4B3C2"/>
+
+  <!-- usuzakura (pale cherry) -->
+  <rect x="8" y="45" width="48" height="9" rx="1.5" fill="#FDE2E4"/>
+</svg>
