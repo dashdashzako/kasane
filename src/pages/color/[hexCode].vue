@@ -60,7 +60,7 @@ article {
 
 nav {
   grid-column: 2;
-  max-height: 100vh;
+  max-height: var(--container-height);
   overflow: auto;
 }
 

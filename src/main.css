@@ -1,4 +1,7 @@
 :root {
+  --container-border-size: 0.5rem;
+  --container-height: calc(100vh - 2 * var(--container-border-size));
+
   font-family:
     system-ui,
     -apple-system,
@@ -15,6 +18,8 @@
   word-break: normal;
   overflow-wrap: anywhere;
   line-break: strict;
+
+  border: var(--container-border-size) solid #111;
 }
 
 *,
