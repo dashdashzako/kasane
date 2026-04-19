@@ -1,5 +1,7 @@
 # kasane
 
+Traditional Colors of Japan.
+
 ## Project Setup
 
 ```sh
