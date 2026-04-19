@@ -15,6 +15,13 @@ import ColorsList from '@/components/colors-list.vue'
 </template>
 
 <style lang="css" scoped>
+article {
+  height: var(--container-height);
+  padding: 2.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   margin: 0 auto;
 
@@ -24,7 +31,7 @@ h1 {
 }
 
 rt {
-  font-size: clamp(1rem, 5vw, 2rem);
+  font-size: clamp(1rem, 5vw, 1.5rem);
 }
 
 p {
@@ -32,9 +39,13 @@ p {
 
   padding: 0 1rem;
 
-  font-size: clamp(1rem, 6vw, 2rem);
+  font-size: clamp(1rem, 5vw, 2rem);
   line-height: 1;
   text-align: center;
+}
+
+nav {
+  overflow: auto;
 }
 
 .colors-list {

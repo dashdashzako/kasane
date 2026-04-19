@@ -70,7 +70,7 @@ article {
 nav {
   grid-column: 2;
   max-height: var(--container-height);
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .colors-list {
