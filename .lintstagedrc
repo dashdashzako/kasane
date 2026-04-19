@@ -1,0 +1,5 @@
+{
+  "*": "prettier --write",
+  "*.{ts,vue}": "eslint",
+  "*.md": "markdownlint"
+}
