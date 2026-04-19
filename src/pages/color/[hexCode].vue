@@ -6,8 +6,21 @@ import ColorsList from '@/components/colors-list.vue'
 
 const route = useRoute()
 
+const fallbackColor: (typeof colors.data)[number] = {
+  hex: '#FFFFFF',
+  kanji: '白',
+  reading: 'しろ',
+  section: 'さ行',
+}
+
 const currentColor = computed(() => {
-  return colors.data.find(({ hex }) => hex === route.params.hexCode)
+  const color = colors.data.find(({ hex }) => hex === route.params.hexCode)
+
+  if (color) {
+    return color
+  }
+
+  return fallbackColor
 })
 </script>
 
