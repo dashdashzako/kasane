@@ -4,7 +4,9 @@ import ColorsList from '@/components/colors-list.vue'
 
 <template>
   <article>
-    <h1>襲</h1>
+    <h1>
+      <ruby>襲 <rp>(</rp><rt>かさね</rt><rp>)</rp></ruby>
+    </h1>
     <p>Traditional Colors of Japan</p>
     <nav>
       <ColorsList class="colors-list" />
@@ -19,6 +21,10 @@ h1 {
   font-size: clamp(2rem, 20vw, 8rem);
   font-weight: lighter;
   text-align: center;
+}
+
+rt {
+  font-size: clamp(1rem, 5vw, 2rem);
 }
 
 p {
