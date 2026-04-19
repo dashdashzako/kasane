@@ -111,8 +111,10 @@ dd {
 
 .hex-code {
   margin: 0;
-  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-size: clamp(1rem, 5vw, 1.3rem);
+  font-weight: 300;
   font-variant-numeric: slashed-zero tabular-nums;
+  letter-spacing: 0.1em;
 }
 
 .kanji-enter-active {
