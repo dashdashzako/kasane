@@ -1,5 +1,4 @@
 {
-  "*": "prettier --write",
-  "*.{ts,vue}": "eslint",
+  "*.{ts,vue,json,yaml}": ["prettier --write", "eslint"],
   "*.md": "markdownlint"
 }
