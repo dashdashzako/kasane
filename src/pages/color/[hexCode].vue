@@ -3,6 +3,7 @@ import { useRoute } from 'vue-router'
 import colors from '../../data/colors.json'
 import { computed } from 'vue'
 import ColorsList from '@/components/colors-list.vue'
+import VisuallyHidden from '@/components/visually-hidden.vue'
 
 const route = useRoute()
 
@@ -28,18 +29,23 @@ const currentColor = computed(() => {
   <section>
     <article>
       <Transition name="kanji" mode="out-in">
-        <h1 class="kanji" :key="currentColor?.kanji">{{ currentColor?.kanji }}</h1>
+        <h1 class="kanji" :key="currentColor.kanji">{{ currentColor.kanji }}</h1>
       </Transition>
-      <Transition name="reading" mode="out-in">
-        <p class="reading" :key="currentColor?.kanji">{{ currentColor?.reading }}</p>
-      </Transition>
+      <dl>
+        <VisuallyHidden tag="dt">Reading</VisuallyHidden>
+        <Transition name="reading" mode="out-in">
+          <dd class="reading" :key="currentColor.kanji">{{ currentColor.reading }}</dd>
+        </Transition>
+        <VisuallyHidden tag="dt">Hex code</VisuallyHidden>
+        <Transition name="hex-code" mode="out-in">
+          <dd class="hex-code" :key="currentColor.kanji">{{ currentColor.hex }}</dd>
+        </Transition>
+      </dl>
     </article>
 
     <nav>
       <ColorsList class="colors-list" :contrast-color="route.params.hexCode" />
     </nav>
-
-    <div class="wallpaper" />
   </section>
 </template>
 
@@ -47,6 +53,9 @@ const currentColor = computed(() => {
 section {
   display: grid;
   grid-template-columns: 1fr auto;
+
+  background-color: v-bind('route.params.hexCode');
+  transition: background-color 2s ease-in-out;
 }
 
 article,
@@ -68,15 +77,6 @@ nav {
   --size: 1.5rem;
 }
 
-.wallpaper {
-  grid-row: 1;
-  grid-column: 1 / -1;
-  z-index: -1;
-
-  background-color: v-bind('route.params.hexCode');
-  transition: background-color 2s ease-in-out;
-}
-
 article {
   --color: v-bind('route.params.hexCode');
 
@@ -96,9 +96,23 @@ article {
   font-size: clamp(2rem, 20vw, 8rem);
 }
 
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
 .reading {
   margin: 0;
-  font-size: clamp(1rem, 10vw, 2rem);
+  font-size: clamp(1rem, 10vw, 3rem);
+}
+
+.hex-code {
+  margin: 0;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-variant-numeric: slashed-zero tabular-nums;
 }
 
 .kanji-enter-active {
@@ -109,21 +123,31 @@ article {
   transition: all 1s ease 0.4s;
 }
 
+.hex-code-enter-active {
+  transition: all 1s ease 0.6s;
+}
+
 .kanji-leave-active {
-  transition: all 0.5s ease 0.15s;
+  transition: all 0.5s ease 0.3s;
 }
 
 .reading-leave-active {
+  transition: all 0.5s ease 0.15s;
+}
+
+.hex-code-leave-active {
   transition: all 0.5s ease;
 }
 
 .kanji-leave-to,
+.hex-code-leave-to,
 .reading-leave-to {
   opacity: 0;
   transform: translateY(3px);
 }
 
 .kanji-enter-from,
+.hex-code-enter-from,
 .reading-enter-from {
   opacity: 0;
   transform: translateY(-4px);
