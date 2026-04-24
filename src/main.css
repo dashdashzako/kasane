@@ -1,6 +1,6 @@
 :root {
   --container-border-size: 0.5rem;
-  --container-height: calc(100vh - 2 * var(--container-border-size));
+  --container-height: calc(100dvh - 2 * var(--container-border-size));
 
   font-family:
     system-ui,
@@ -33,6 +33,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
