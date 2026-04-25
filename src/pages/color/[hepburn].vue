@@ -8,6 +8,7 @@ import VisuallyHidden from '@/components/visually-hidden.vue'
 const route = useRoute()
 
 const fallbackColor: (typeof colors)[number] = {
+  hepburn: 'shiro',
   hex: '#FFFFFF',
   kanji: '白',
   reading: 'しろ',
@@ -15,7 +16,7 @@ const fallbackColor: (typeof colors)[number] = {
 }
 
 const currentColor = computed(() => {
-  const color = colors.find(({ hex }) => hex === route.params.hexCode)
+  const color = colors.find(({ hepburn }) => hepburn === route.params.hepburn)
 
   if (color) {
     return color
@@ -29,22 +30,22 @@ const currentColor = computed(() => {
   <section>
     <article>
       <Transition name="kanji" mode="out-in">
-        <h1 class="kanji" :key="currentColor.kanji">{{ currentColor.kanji }}</h1>
+        <h1 class="kanji" :key="currentColor.hepburn">{{ currentColor.kanji }}</h1>
       </Transition>
       <dl>
         <VisuallyHidden tag="dt">Reading</VisuallyHidden>
         <Transition name="reading" mode="out-in">
-          <dd class="reading" :key="currentColor.reading">{{ currentColor.reading }}</dd>
+          <dd class="reading" :key="currentColor.hepburn">{{ currentColor.reading }}</dd>
         </Transition>
         <VisuallyHidden tag="dt">Hex code</VisuallyHidden>
         <Transition name="hex-code" mode="out-in">
-          <dd class="hex-code" :key="currentColor.hex">{{ currentColor.hex }}</dd>
+          <dd class="hex-code" :key="currentColor.hepburn">{{ currentColor.hex }}</dd>
         </Transition>
       </dl>
     </article>
 
     <nav>
-      <ColorsList class="colors-list" :contrast-color="route.params.hexCode" />
+      <ColorsList class="colors-list" :contrast-color="route.params.hepburn" />
     </nav>
   </section>
 </template>
@@ -54,7 +55,7 @@ section {
   display: grid;
   grid-template-columns: 1fr auto;
 
-  background-color: v-bind('route.params.hexCode');
+  background-color: v-bind('currentColor.hex');
   transition: background-color 2s ease-in-out;
 }
 
@@ -78,7 +79,7 @@ nav {
 }
 
 article {
-  --color: v-bind('route.params.hexCode');
+  --color: v-bind('currentColor.hex');
 
   display: flex;
   flex-direction: column;

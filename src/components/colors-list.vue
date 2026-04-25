@@ -11,7 +11,7 @@ const { contrastColor = '#FFF' } = defineProps<{
   <ol>
     <li v-for="color in colors" :key="color.kanji" :style="`--color: ${color.hex}`">
       <RouterLink
-        :to="{ name: '/color/[hexCode]', params: { hexCode: color.hex } }"
+        :to="{ name: '/color/[hepburn]', params: { hepburn: color.hepburn } }"
         :aria-label="color.kanji"
         exact-active-class="active-color"
       />
