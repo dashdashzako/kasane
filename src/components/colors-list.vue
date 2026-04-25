@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import colors from '../data/colors.json'
+import { colors } from '../data/colors'
 
 const { contrastColor = '#FFF' } = defineProps<{
   contrastColor?: string
@@ -9,7 +9,7 @@ const { contrastColor = '#FFF' } = defineProps<{
 
 <template>
   <ol>
-    <li v-for="color in colors.data" :key="color.kanji" :style="`--color: ${color.hex}`">
+    <li v-for="color in colors" :key="color.kanji" :style="`--color: ${color.hex}`">
       <RouterLink
         :to="{ name: '/color/[hexCode]', params: { hexCode: color.hex } }"
         :aria-label="color.kanji"

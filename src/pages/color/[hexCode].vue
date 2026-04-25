@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import colors from '../../data/colors.json'
+import { colors } from '../../data/colors'
 import { computed } from 'vue'
 import ColorsList from '@/components/colors-list.vue'
 import VisuallyHidden from '@/components/visually-hidden.vue'
 
 const route = useRoute()
 
-const fallbackColor: (typeof colors.data)[number] = {
+const fallbackColor: (typeof colors)[number] = {
   hex: '#FFFFFF',
   kanji: '白',
   reading: 'しろ',
@@ -15,7 +15,7 @@ const fallbackColor: (typeof colors.data)[number] = {
 }
 
 const currentColor = computed(() => {
-  const color = colors.data.find(({ hex }) => hex === route.params.hexCode)
+  const color = colors.find(({ hex }) => hex === route.params.hexCode)
 
   if (color) {
     return color
@@ -34,11 +34,11 @@ const currentColor = computed(() => {
       <dl>
         <VisuallyHidden tag="dt">Reading</VisuallyHidden>
         <Transition name="reading" mode="out-in">
-          <dd class="reading" :key="currentColor.kanji">{{ currentColor.reading }}</dd>
+          <dd class="reading" :key="currentColor.reading">{{ currentColor.reading }}</dd>
         </Transition>
         <VisuallyHidden tag="dt">Hex code</VisuallyHidden>
         <Transition name="hex-code" mode="out-in">
-          <dd class="hex-code" :key="currentColor.kanji">{{ currentColor.hex }}</dd>
+          <dd class="hex-code" :key="currentColor.hex">{{ currentColor.hex }}</dd>
         </Transition>
       </dl>
     </article>
