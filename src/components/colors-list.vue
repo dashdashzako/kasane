@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import { colors } from '../data/colors'
 
-const { contrastColor = '#FFF' } = defineProps<{
+const { contrastColor = '#FFFFFF' } = defineProps<{
   contrastColor?: string
 }>()
 </script>
@@ -10,7 +9,7 @@ const { contrastColor = '#FFF' } = defineProps<{
 <template>
   <ol>
     <li v-for="color in colors" :key="color.kanji" :style="`--color: ${color.hex}`">
-      <RouterLink
+      <router-link
         :to="{ name: '/color/[hepburn]', params: { hepburn: color.hepburn } }"
         :aria-label="color.kanji"
         exact-active-class="active-color"
@@ -33,7 +32,6 @@ ol {
   flex-direction: column;
 
   margin: 0;
-  gap: 4px;
   padding: 2px 0.5rem;
 
   transition: width 0.12s ease-out;
@@ -41,7 +39,7 @@ ol {
 
 li {
   border-radius: 50%;
-  padding: 0.2rem;
+  padding: 4px;
 }
 
 a {
