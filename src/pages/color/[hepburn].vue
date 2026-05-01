@@ -123,7 +123,7 @@ dd {
 }
 
 .reading-enter-active {
-  transition: all 1s ease 0.4s;
+  transition: all 1s ease 0.3s;
 }
 
 .hex-code-enter-active {
