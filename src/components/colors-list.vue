@@ -33,7 +33,8 @@ ol {
   flex-direction: column;
 
   margin: 0;
-  padding: 0 0.5rem;
+  gap: 4px;
+  padding: 2px 0.5rem;
 
   transition: width 0.12s ease-out;
 }
@@ -53,12 +54,18 @@ a {
 
   overflow: auto;
 
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: oklch(from var(--contrast-color) calc((0.6 - l) * infinity) 0 0);
+
+  transition:
+    outline-width 0.13s ease,
+    outline-color 1.4s ease 0.5s;
+
   &.active-color,
   &:not(.active-color):hover,
   &:not(.active-color):focus-visible {
-    outline: 0;
-
-    border: 2px solid oklch(from var(--contrast-color) calc((0.6 - l) * infinity) 0 0);
+    outline-width: 4px;
   }
 }
 </style>
