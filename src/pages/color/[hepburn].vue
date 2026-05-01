@@ -45,7 +45,7 @@ const currentColor = computed(() => {
     </article>
 
     <nav>
-      <ColorsList class="colors-list" :contrast-color="route.params.hepburn" />
+      <ColorsList class="colors-list" :contrast-color="currentColor.hex" />
     </nav>
   </section>
 </template>
