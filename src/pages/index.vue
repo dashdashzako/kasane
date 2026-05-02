@@ -49,6 +49,8 @@ nav {
 }
 
 .colors-list {
+  --size: 1.75rem;
+
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
