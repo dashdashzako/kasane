@@ -38,32 +38,31 @@ ol {
 }
 
 li {
-  border-radius: 50%;
-  padding: 4px;
+  padding: 2px;
 }
 
 a {
   display: block;
   width: var(--size);
   height: var(--size);
-  border-radius: 50%;
+
+  border-radius: 2px;
 
   background-color: var(--color);
 
   overflow: auto;
 
-  outline-width: 2px;
+  outline-width: 1px;
   outline-style: solid;
   outline-color: oklch(from var(--contrast-color) calc((0.6 - l) * infinity) 0 0);
 
-  transition:
-    outline-width 0.13s ease,
-    outline-color 1.4s ease 0.5s;
+  transition: border-radius 0.13s ease-out;
 
   &.active-color,
   &:not(.active-color):hover,
   &:not(.active-color):focus-visible {
-    outline-width: 4px;
+    outline-width: 2px;
+    border-radius: 50%;
   }
 }
 </style>
