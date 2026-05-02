@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { colors } from '../../data/colors'
-import { computed } from 'vue'
+import { computed, watchEffect } from 'vue'
 import ColorsList from '@/components/colors-list.vue'
 import VisuallyHidden from '@/components/visually-hidden.vue'
 
@@ -23,6 +23,16 @@ const currentColor = computed(() => {
   }
 
   return fallbackColor
+})
+
+watchEffect(() => {
+  const element = document.getElementById(route.params.hepburn)
+
+  if (!element) {
+    return
+  }
+
+  element.scrollIntoView({ behavior: 'smooth', block: 'center' })
 })
 </script>
 

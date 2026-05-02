@@ -12,6 +12,7 @@ const { contrastColor = '#FFFFFF' } = defineProps<{
       <router-link
         :to="{ name: '/color/[hepburn]', params: { hepburn: color.hepburn } }"
         :aria-label="color.kanji"
+        :id="color.hepburn"
         exact-active-class="active-color"
       />
     </li>
