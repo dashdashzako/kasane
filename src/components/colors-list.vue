@@ -34,8 +34,6 @@ ol {
 
   margin: 0;
   padding: 2px 0.5rem;
-
-  transition: width 0.12s ease-out;
 }
 
 li {
@@ -57,7 +55,9 @@ a {
   outline-style: solid;
   outline-color: oklch(from var(--contrast-color) calc((0.6 - l) * infinity) 0 0);
 
-  transition: border-radius 0.13s ease-out;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: border-radius 0.13s ease-out;
+  }
 
   &.active-color,
   &:not(.active-color):hover,

@@ -66,7 +66,10 @@ section {
   grid-template-columns: 1fr auto;
 
   background-color: v-bind('currentColor.hex');
-  transition: background-color 2s ease-in-out;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 2s ease-in-out;
+  }
 }
 
 article,
@@ -97,7 +100,10 @@ article {
   justify-content: center;
 
   color: oklch(from var(--color) calc((0.6 - l) * infinity) 0 0);
-  transition: color 1s ease 0.2s;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 1s ease 0.2s;
+  }
 }
 
 .kanji {
@@ -128,41 +134,43 @@ dd {
   letter-spacing: 0.1em;
 }
 
-.kanji-enter-active {
-  transition: all 1s ease;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .kanji-enter-active {
+    transition: all 1s ease;
+  }
 
-.reading-enter-active {
-  transition: all 1s ease 0.3s;
-}
+  .reading-enter-active {
+    transition: all 1s ease 0.3s;
+  }
 
-.hex-code-enter-active {
-  transition: all 1s ease 0.6s;
-}
+  .hex-code-enter-active {
+    transition: all 1s ease 0.6s;
+  }
 
-.kanji-leave-active {
-  transition: all 0.5s ease 0.3s;
-}
+  .kanji-leave-active {
+    transition: all 0.5s ease 0.3s;
+  }
 
-.reading-leave-active {
-  transition: all 0.5s ease 0.15s;
-}
+  .reading-leave-active {
+    transition: all 0.5s ease 0.15s;
+  }
 
-.hex-code-leave-active {
-  transition: all 0.5s ease;
-}
+  .hex-code-leave-active {
+    transition: all 0.5s ease;
+  }
 
-.kanji-leave-to,
-.hex-code-leave-to,
-.reading-leave-to {
-  opacity: 0;
-  transform: translateY(3px);
-}
+  .kanji-leave-to,
+  .hex-code-leave-to,
+  .reading-leave-to {
+    opacity: 0;
+    transform: translateY(3px);
+  }
 
-.kanji-enter-from,
-.hex-code-enter-from,
-.reading-enter-from {
-  opacity: 0;
-  transform: translateY(-4px);
+  .kanji-enter-from,
+  .hex-code-enter-from,
+  .reading-enter-from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
 }
 </style>
