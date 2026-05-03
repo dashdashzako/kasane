@@ -4,6 +4,7 @@ import { colors } from '../../data/colors'
 import { computed, watchEffect } from 'vue'
 import ColorsList from '@/components/colors-list.vue'
 import VisuallyHidden from '@/components/visually-hidden.vue'
+import { useBrowserCapabilities } from '@/composables/use-browser-capabilities'
 
 const route = useRoute()
 
@@ -14,6 +15,8 @@ const fallbackColor: (typeof colors)[number] = {
   reading: 'しろ',
   section: 'さ行',
 }
+
+const { supportsAnimations } = useBrowserCapabilities()
 
 const currentColor = computed(() => {
   const color = colors.find(({ hepburn }) => hepburn === route.params.hepburn)
@@ -32,7 +35,9 @@ watchEffect(() => {
     return
   }
 
-  element.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  const scrollBehavior: ScrollOptions['behavior'] = supportsAnimations.value ? 'smooth' : 'auto'
+
+  element.scrollIntoView({ behavior: scrollBehavior, block: 'center' })
 })
 </script>
 
