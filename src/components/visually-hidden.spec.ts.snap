@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<visually-hidden> > allows tag customization 1`] = `"<test-tag data-v-2d1847ce="" class="visually-hidden">[Test]</test-tag>"`;
