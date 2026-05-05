@@ -5,6 +5,7 @@ import { computed, watchEffect } from 'vue'
 import ColorsList from '@/components/colors-list.vue'
 import VisuallyHidden from '@/components/visually-hidden.vue'
 import { useBrowserCapabilities } from '@/composables/use-browser-capabilities'
+import HexCode from '@/components/hex-code.vue'
 
 const route = useRoute()
 
@@ -54,7 +55,9 @@ watchEffect(() => {
         </Transition>
         <VisuallyHidden tag="dt">Hex code</VisuallyHidden>
         <Transition name="hex-code" mode="out-in">
-          <dd class="hex-code" :key="currentColor.hepburn">{{ currentColor.hex }}</dd>
+          <dd class="hex-code" :key="currentColor.hepburn">
+            <HexCode :hex-code="currentColor.hex" />
+          </dd>
         </Transition>
       </dl>
     </article>
